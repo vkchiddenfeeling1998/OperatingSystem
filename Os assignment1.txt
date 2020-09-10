@@ -781,6 +781,168 @@ g)g) display attributes of a directory using ls -ld
 vaishu@DESKTOP-K93JUVT:~$ ls -ld
 drwxr-xr-x 1 vaishu vaishu 4096 Sep 10 17:13 .
 ---------------------------------------------------------------------------------------------------------------------------------------------
+Q1. Create directory of your name and then create 4 files inside it named
+	a.txt, b.txt, c.txt and d.sh. And change the directory permission to
+	only user and also files permission to only user such that
+a)user can read and write the file a.txt and b.txt
+vaishu@DESKTOP-K93JUVT:~$ touch a.txt b.txt c.txt d.sh
+vaishu@DESKTOP-K93JUVT:~$ chmod 700 a.txt
+vaishu@DESKTOP-K93JUVT:~$ chmod 700 b.txt
+
+b)user can write the file c.txt
+vaishu@DESKTOP-K93JUVT:~$ chmod u-r c.txt
+
+c)user can exectuable the file d.sh. Make
+Contents of file d.sh:
+#/bin/sh
+ls -lh
+vaishu@DESKTOP-K93JUVT:~$ vi d.sh
+
+
+Q2. Change the permission of the previous directory to executable only.
+Analyze the output.
+vaishu@DESKTOP-K93JUVT:~$ chmod u=x d.sh
+vaishu@DESKTOP-K93JUVT:~$ ls -l
+total 0
+-rw-rw-rw- 1 vaishu vaishu  0 Sep  9 22:02 a.txt
+-rw-rw-rw- 1 vaishu vaishu  0 Sep  9 22:02 b.txt
+-rwxrw-rw- 1 vaishu vaishu  0 Sep  9 22:02 c.txt
+---xrwxrwx 1 vaishu vaishu 20 Sep 10 00:37 d.sh
+
+Q3. Change the permission of the previous directory to read only.
+Analyze the output.
+vaishu@DESKTOP-K93JUVT:~$ chmod u=r d.sh
+vaishu@DESKTOP-K93JUVT:~$ ls -l
+total 0
+-rw-rw-rw- 1 vaishu vaishu  0 Sep  9 22:02 a.txt
+-rw-rw-rw- 1 vaishu vaishu  0 Sep  9 22:02 b.txt
+-rwxrw-rw- 1 vaishu vaishu  0 Sep  9 22:02 c.txt
+-r--rwxrwx 1 vaishu vaishu 20 Sep 10 00:37 d.sh
+
+Q4. Use echo to list the all files of your home directory.
+vaishu@DESKTOP-K93JUVT:~$ echo *
+SUBHAM a.txt abc.txt b.txt cdac file.txt file1.txt file2.txt file3.txt file4.txt file5.txt kuru mumbai.txt os.text ravi
+
+Q5. Use echo to list the all files of /etc/ directory
+vaishu@DESKTOP-K93JUVT:~$ echo *
+
+Q6. Use echo to list the all files of /etc/ directory with extension name .conf
+vaishu@DESKTOP-K93JUVT:~$ echo *.conf
+adduser.conf ca-certificates.conf debconf.conf deluser.conf e2scrub.conf fuse.conf gai.conf hdparm.conf host.conf kernel-img.conf ld.so.conf libaudit.conf logrotate.conf ltrace.conf mke2fs.conf multipath.conf nsswitch.conf overlayroot.conf overlayroot.local.conf pam.conf popularity-contest.conf resolv.conf rsyslog.conf sensors3.conf sos.conf sysctl.conf ucf.conf xattr.conf
+
+Q7. Use echo to append your name to a.txt
+vaishu@DESKTOP-K93JUVT:~$ echo SHWETA >> a.txt
+
+1.Create Three level nested directory a,b and c
+vaishu@DESKTOP-K93JUVT:~$ mkdir a b c
+
+a)Create at least one hidden file in each directory
+vaishu@DESKTOP-K93JUVT:~$ touch .h1 
+vaishu@DESKTOP-K93JUVT:~$ touch .h2
+vaishu@DESKTOP-K93JUVT:~$ touch .h3
+
+b)Create at least one normal text file in each directory
+
+vaishu@DESKTOP-K93JUVT:~$ touch n1
+vaishu@DESKTOP-K93JUVT:~$ touch n2
+vaishu@DESKTOP-K93JUVT:~$ touch n3
+
+c)Copy c into a
+vaishu@DESKTOP-K93JUVT:~$ cp -R c a
+
+d)Copy file inside a into b
+vaishu@DESKTOP-K93JUVT:~$ cp -r b/n2 a
+
+
+2.Change the third level directory c permission to read only
+vaishu@DESKTOP-K93JUVT:~$ chmod a=r c
+vaishu@DESKTOP-K93JUVT:~$ ls -l
+total 0
+drwx------ 1 vaishu vaishu 4096 Sep 10 00:37 SUBHAM
+drwxrwxrwx 1 vaishu vaishu 4096 Sep 10 15:25 a
+drwxrwxrwx 1 vaishu vaishu 4096 Sep 10 15:18 b
+dr--r--r-- 1 vaishu vaishu 4096 Sep 10 15:19 c
+
+3.Try copying third level c directory to outside of a
+vaishu@DESKTOP-K93JUVT:~$ cp -r c b
+cp: cannot stat 'c/.h3': Permission denied
+cp: cannot stat 'c/n3': Permission denied
+
+4.Create the directory  “data“ inside b
+vaishu@DESKTOP-K93JUVT:~$ cd b
+vaishu@DESKTOP-K93JUVT:~/b$ mkdir data
+
+5.Change the permission of b to read and write only
+vaishu@DESKTOP-K93JUVT:~$ chmod a=rw b
+
+6.Create directory “data2”  inside b
+subham@LAPTOP-B3G5TU87:~$ cd b
+-bash: cd: b: Permission denied
+vaishu@DESKTOP-K93JUVT7:~$ mkdir b/data2
+mkdir: cannot create directory ‘b/data2’: Permission denied
+
+7.Create data.txt file inside b
+vaishu@DESKTOP-K93JUVT:~$ touch b/data.txt
+touch: cannot touch 'b/data.txt': Permission denied
+
+8.Rename the second level directory c to copied_dir
+vaishu@DESKTOP-K93JUVT:~/a$ mv c copied_dir
+
+9.Change permission of copied_dir to only executable
+vaishu@DESKTOP-K93JUVT:~/a$ chmod a=x copied_dir
+
+10.Try ls on copied_dir
+vaishu@DESKTOP-K93JUVT:~/a/copied_dir$ ls
+ls: cannot open directory '.': Permission denied
+
+11.Try moving copied_dir to outside of a
+vaishu@DESKTOP-K93JUVT:~/a$ mv copied_dir c
+
+12.Try moving data directory outside of a
+vaishu@DESKTOP-K93JUVT:~/a$ mv data c
+mv: cannot stat 'data': No such file or directory
+
+13.Now change the owner of the directory a to root
+vaishu@DESKTOP-K93JUVT:~$ chown subham root
+chown: cannot access 'root': No such file or directory
+
+14.Change permission of a to read write and executable to only user
+vaishu@DESKTOP-K93JUVT:~$ chmod u=rwx a
+drwx------ 1 subham subham 4096 Sep 10 15:49 a
+
+15.Try creating directory sample inside a
+vaishu@DESKTOP-K93JUVT:~$ mkdir Sample
+
+16.Create directory x outside a
+vaishu@DESKTOP-K93JUVT:~$ mkdir X
+vaishu@DESKTOP-K93JUVT:~$ ls
+SUBHAM  X  a  b  file.txt  file1.txt  file2.txt  file3.txt  file4.txt  file5.txt  kuru
+
+17.Try moving x inside a
+vaishu@DESKTOP-K93JUVT:~$ mv X a
+vaishu@DESKTOP-K93JUVT:~/a$ ls
+Sample  X  b  c  n1  n2
+
+18.Create directory movies
+vaishu@DESKTOP-K93JUVT:~$ mkdir movies
+vaishu@DESKTOP-K93JUVT:~$ ls
+SUBHAM  a  b  file.txt  file1.txt  file2.txt  file3.txt  file4.txt  file5.txt  kuru  movies
+
+19.Change group of movies to sudo
+vaishu@DESKTOP-K93JUVT:~$ groupadd movies
+groupadd: Permission denied.
+groupadd: cannot lock /etc/group; try again later.
+
+20.Change group of movies to avahi
+vaishu@DESKTOP-K93JUVT:~$ groupadd movies
+groupadd: Permission denied.
+groupadd: cannot lock /etc/group; try again later.
+
+25.Try deleting the file
+vaishu@DESKTOP-K93JUVT:~$ rm -r a b
+vaishu@DESKTOP-K93JUVT:~$ ls
+SUBHAM  file.txt  file1.txt  file2.txt  file3.txt  file4.txt  file5.txt  kuru  movies
+
 
 
 
