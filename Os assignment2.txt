@@ -1,0 +1,200 @@
+=========================================Assignment 2==================================================================
+ 
+
+QUE1 1. Write a script to create 10 directories, say a1,a2,...,a10
+Report error if a directory/file exists with the same name.
+
+==>
+vaishu@DESKTOP-K93JUVT:~$ vi prog2.sh
+
+for ((i=1;i<=10;i++))
+do
+        mkdir "a$i"
+done
+vaishu@DESKTOP-K93JUVT:~$ ./prog2.sh
+vaishu@DESKTOP-K93JUVT:~$ ls
+a1   a2  a4  a6  a8  
+a10  a3  a5  a7  a9  
+
+QUE2 2. Write a menu based script to perform following string operations
+a) To find length of a string
+c) Copying string
+d) Concatenation of strings
+e) Compare two strings
+f) Reversing a string
+
+==>
+a) To find length of a string
+==============================
+vaishu@DESKTOP-K93JUVT:~$ vi prog3.sh
+string="vaish"
+echo len=${#string}
+
+vaishu@DESKTOP-K93JUVT:~$ chmod +x prog3.sh
+vaishu@DESKTOP-K93JUVT:~$ ./prog3.sh
+len=5
+
+c) Copying string
+==================
+vaishu@DESKTOP-K93JUVT:~$ vi prog4.sh
+str="vchouhan"
+echo abc=$str
+
+vaishu@DESKTOP-K93JUVT:~$ chmod +x prog4.sh
+vaishu@DESKTOP-K93JUVT:~$ ./prog4.sh
+abc=vchouhan
+
+d) Concatenation of strings
+=============================
+vaishu@DESKTOP-K93JUVT:~$ vi prog5.sh
+str1="vaishnavi kailashsingh"
+str2="chouhan"
+echo str3=$str1 $str2
+      
+vaishu@DESKTOP-K93JUVT:~$ chmod +x prog5.sh
+vaishu@DESKTOP-K93JUVT:~$ ./prog5.sh                                                         ~                     z
+str3=vaishnavi kailashsingh chouhan
+vaishu@DESKTOP-K93JUVT:~$  
+
+e) Compare two strings
+======================
+vaishu@DESKTOP-K93JUVT:~$ vi prog7.sh
+vaishu@DESKTOP-K93JUVT:~$ chmod +x prog7.sh
+
+str1="cdac"
+str2="cdac"
+if(($str1 == $str3)); then
+echo "equal"
+else
+echo "not equal"
+fi
+
+vaishu@DESKTOP-K93JUVT:~$ ./prog7.sh
+equal         
+
+f) Reversing a string
+======================
+vaishu@DESKTOP-K93JUVT:~$ vi prog8.sh
+str1="vaishnavi"
+echo $str1 | rev
+$ echo welcome | rev
+vaishu@DESKTOP-K93JUVT:~$ ./prog8.sh
+ivanhsiav
+vaishu@DESKTOP-K93JUVT:~$
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QUE4
+==>
+vaishu@DESKTOP-K93JUVT:~$ vi prog12.sh
+vaishu@DESKTOP-K93JUVT:~$ chmod +x prog12.sh
+vaishu@DESKTOP-K93JUVT:~$ ./prog12.sh
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+HOSTTYPE=x86_64
+LESSCLOSE=/usr/bin/lesspipe %s %s
+_=/usr/bin/env
+LANG=C.UTF-8
+WSL_DISTRO_NAME=Ubuntu
+USER=vaishu
+PWD=/home/vaishu
+HOME=/home/vaishu
+NAME=DESKTOP-K93JUVT
+XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
+TERM=xterm-256color
+SHELL=/bin/bash
+SHLVL=2
+LOGNAME=vaishu
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.UbuntuonWindows_2004.2020.812.0_x64__79rhkp1fndgsc:/mnt/c/Users/Lenovo/gcc/bin:/mnt/c/Users/Lenovo/gcc/libexec/gcc/i686-pc-mingw32/7.0.1:/mnt/c/ProgramData/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Windows/IsmFiles:/mnt/c/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/100/DTS/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/VSShell/Common7/IDE/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/Brackets/command:/mnt/c/Program Files/nodejs/:/mnt/c/Users/Lenovo/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files (x86)/SSH Communications Security/SSH Secure Shell:/mnt/c/Users/Lenovo/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Lenovo/AppData/Roaming/npm:/snap/bin
+WSLENV=
+LESSOPEN=| /usr/bin/lesspipe %s
+vaishu@DESKTOP-K93JUVT:~$
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QUE5) 5. Write a shell script to print all files permissions in current directory(Not name or other details)(Use cut commands)
+
+vaishu@DESKTOP-K93JUVT:~$ vi prog9.sh
+echo `ls -la | cut -b 1-10`
+
+vaishu@DESKTOP-K93JUVT:~$ ./prog9.sh
+total 48
+drwxr-xr-x
+drwxr-xr-x
+-rw-------
+-rw-r--r--
+-rw-r--r--
+drwxrwxrwx
+drwx------
+-rw-rw-rw-
+drwxrwxrwx
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-------
+drwxrwxrwx
+drwxrwxrwx
+drwxrwxrwx
+drwxrwxrwx
+drwxrwxrwx
+drwxrwxrwx
+drwxrwxrwx
+drwxrwxrwx
+drwxrwxrwx
+drwxrwxrwx
+-rw-rw-rw-
+-rw-rw-rw-
+-rw-rw-rw-
+-rw-rw-rw-
+-rw-rw-rw-
+-rw-rw-rw-
+-rw-rw-rw-
+-rw-rw-rw-
+-rw-rw-rw-
+-rw-rw-rw-
+-rw-rw-rw-
+-rwxrwxrwx
+-rwxrwxrwx
+-rwxrwxrwx
+-rwxrwxrwx
+-rwxrwxrwx
+-rwxrwxrwx
+-rwxrwxrwx
+-rwxrwxrwx
+-rwxrwxrwx
+-rwxrwxrwx
+-rw-rw-rw-
+-rw-rw-rw-
+drwxrwxrwx
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QUE6)Write a shell script to print all files permissions and name of file
+
+vaishu@DESKTOP-K93JUVT:~$ vi prog10.sh
+vaishu@DESKTOP-K93JUVT:~$ ./prog10.sh
+total 48 drwxr-xr-x drwxr-xr-x -rw------- -rw-r--r-- -rw-r--r-- drwxrwxrwx drwx------ -rw-rw-rw- drwxrwxrwx -rw-r--r-- -rw-r--r-- -rw-r--r-- -rw------- drwxrwxrwx drwxrwxrwx drwxrwxrwx drwxrwxrwx drwxrwxrwx drwxrwxrwx drwxrwxrwx drwxrwxrwx drwxrwxrwx drwxrwxrwx -rw-rw-rw- -rw-rw-rw- -rw-rw-rw- -rw-rw-rw- -rw-rw-rw- -rw-rw-rw- -rw-rw-rw- -rw-rw-rw- -rw-rw-rw- -rw-rw-rw- -rw-rw-rw- -rwxrwxrwx -rwxrwxrwx -rwxrwxrwx -rwxrwxrwx -rwxrwxrwx -rwxrwxrwx -rwxrwxrwx -rwxrwxrwx -rwxrwxrwx -rwxrwxrwx -rw-rw-rw- -rw-rw-rw- drwxrwxrwx a1 a10 a2 a3 a4 a5 a6 a7 a8 a9 empty1.sh empty2.sh empty3.sh empty4.sh empty5.sh file.txt file1.txt file2.txt file2.txt.save file3.txt file5.txt prog1.sh prog10.sh prog2.sh prog3.sh prog4.sh prog5.sh prog6.sh prog7.sh prog8.sh prog9.sh text.txt text2.txt vaishnavi
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUE1)1. Write a script To check given year is leap or not.
+
+vaishu@DESKTOP-K93JUVT:~$ vi prog11.sh
+echo "Enter the year (YYYY)" 
+read year 
+if [ $(( year % 4 )) -eq 0 ]
+ then 
+    if [ $(( year % 100 )) -eq 0 ]
+     then
+         if [ $(( year % 400 )) -eq 0 ]
+         then   
+            echo "its a leap year"
+         else echo "its not a leap year" 
+         fi
+    else echo "Its not a leap year"
+    fi
+else echo "its not a leap year"
+fi 
+
+
+vaishu@DESKTOP-K93JUVT:~$ chmod +x prog11.sh
+vaishu@DESKTOP-K93JUVT:~$ ./prog11.sh
+Enter the year (YYYY)
+2020
+Its not a leap year
+vaishu@DESKTOP-K93JUVT:~$
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
