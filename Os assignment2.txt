@@ -185,7 +185,205 @@ if [ $(( year % 4 )) -eq 0 ]
          fi
     else echo "Its not a leap year"
     fi
-else echo "its not a leap year"
+else echo "its not a leap year"que2)Write a script to print day of the week using
+a)elif
+=======
+
+echo enter the number of day of week
+read day
+
+if [ $day == 1 ]; then
+        echo sunday
+elif [ $day == 3 ]; then
+        echo tuesday
+elif [ $day == 3 ]; then
+        echo wednesday
+fi
+~      
+
+
+b)case
+======
+echo "Enter the no of the day"
+read day
+case $day in
+        1)echo "SUNDAY" ;;
+        2)echo  "MONDAY" ;;
+        3)echo "TUESDAY" ;;
+        4)echo "WEDNESDAY" ;;
+        5)echo "THURSDAY" ;;
+        6)echo "FRIDAY" ;;
+        7)echo "SATURDAY" ;;
+        *)echo "ENTER VALID DAY" ;;
+esac
+
+------------------------------------------------------------------------------------
+que3) a) Write a script to find biggest of three no.s
+==> 
+echo enter numbers
+read a
+read b
+read c
+if  [ $a -gt $b ] && [ $a -gt $c ]; then
+        echo "a is greater"
+elif  [ $b -gt $c ]; then
+                echo "b is greater"
+else
+        echo "c is greater"
+
+fi
+
+
+------------------------------------------------------------------------------------
+ b) To find avg of 3 no.s, read no.s from keyboard
+
+vaishu@DESKTOP-K93JUVT:~$ vi average.sh
+echo "enter numbers"
+read n1
+read n2
+read n3
+sum=`expr "$n1" + "$n2" + "$n3"`
+avg=`expr "$sum" / "3"`
+echo "average=$avg"
+
+vaishu@DESKTOP-K93JUVT:~$ chmod +x average.sh
+vaishu@DESKTOP-K93JUVT:~$ ./average.sh
+enter numbers
+3
+4
+5
+average=4
+vaishu@DESKTOP-K93JUVT:~$
+
+
+------------------------------------------------------------------------------------
+4. Write a program to check wahether given no.is even or odd
+
+vaishu@DESKTOP-K93JUVT:~$ vi evenodd.sh
+echo  "enter  a  number" 
+read  x 
+y=`expr  $x  %  2` 
+if [ $y -eq 0 ] ;
+then    
+  echo  "Number  is  even"
+   else 
+      echo  "Number  is  odd"
+       fi 
+
+vaishu@DESKTOP-K93JUVT:~$ chmod +x evenodd.sh
+vaishu@DESKTOP-K93JUVT:~$ ./evenodd.sh
+enter  a  number
+3
+Number  is  odd
+vaishu@DESKTOP-K93JUVT:~$
+
+
+------------------------------------------------------------------------------------
+7. Write a script to generate Fibonacci series.
+
+vaishu@DESKTOP-K93JUVT:~$ vi sum.sh
+echo "Enter two numbers"
+read num1
+read num2
+sum= expr "$num1" + "$num2"
+echo  $sum
+
+vaishu@DESKTOP-K93JUVT:~$ ./sum.sh
+Enter two numbers
+4
+5
+9
+
+------------------------------------------------------------------------------------
+8. Write a shell script to reverse the single strings. 
+vaishu@DESKTOP-K93JUVT:~$ vi fibonaci.sh
+
+N=10 
+     a=0  
+     b=1 
+     echo "The Fibonacci series is : "
+     for (( i=0; i<N; i++ )) 
+     do
+	echo -n "$a "
+	fn=$((a + b)) 
+	a=$b 
+	b=$fn 
+
+vaishu@DESKTOP-K93JUVT:~$ chmod +x fibonaci.sh
+vaishu@DESKTOP-K93JUVT:~$ ./fibonaci.sh
+The Fibonacci series is :
+0 1 1 2 3 5 8 13 21 34 
+
+
+------------------------------------------------------------------------------------
+vaishu@DESKTOP-K93JUVT:~$ vi array.sh
+read N
+
+for((i=0;i<N;i++))
+do
+            read x
+               a[i]=$x
+done
+
+echo ${a[@]} | rev
+
+vaishu@DESKTOP-K93JUVT:~$ chmod +x array.sh
+vaishu@DESKTOP-K93JUVT:~$ ./array.sh
+3
+ravi
+darshu
+patu
+utap uhsrad ivar
+vaishu@DESKTOP-K93JUVT:~$ 
+
+
+------------------------------------------------------------------------------------
+10. Write a shell script to print the reverse of an input number.
+
+vaishu@DESKTOP-K93JUVT:~$ vi reverseno.sh
+vaishu@DESKTOP-K93JUVT:~$ chmod +x reverseno.sh
+vaishu@DESKTOP-K93JUVT:~$ ./reverseno.sh
+enter three digit number
+234
+432
+
+
+----------------------------------------------------------------------------------------
+1.Write a shell script to validate password strength. Here are a few assumptions for the password string.
+Length  – minimum of 8 characters.
+Contain both alphabet and number.
+Include both the small and capital case letters.
+If the password doesn’t comply with any of the above conditions, then the script should report it as a <Weak Password>.
+
+
+echo "enter the password"
+ read password
+  len="${#password}" 
+  if  [ $len -ge 8 ]  
+    then 
+        echo "$password" | grep -q [0-9] 
+    if [ $? -eq 0 ]  
+        then
+             echo "$password" | grep -q [A-Z] 
+        if [ $? -eq 0 ]  
+            then
+                 echo "$password" | grep -q [a-z]
+            if [ $? -eq 0 ]  
+                then 
+                    echo "$password" | grep -q [$,@,\#,%]
+                if [ $? -eq 0 ]  
+                    then echo "Strong password"
+                else echo "weak password include special chars"
+                fi 
+            else echo "weak password include lower case char" 
+            fi
+        else echo "weak password include capital char" 
+        fi 
+    else echo "please include"
+    fi
+fi
+
+
 fi 
 
 
@@ -195,6 +393,205 @@ Enter the year (YYYY)
 2020
 Its not a leap year
 vaishu@DESKTOP-K93JUVT:~$
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------
+que2)Write a script to print day of the week using
+a)elif
+=======
+
+echo enter the number of day of week
+read day
+
+if [ $day == 1 ]; then
+        echo sunday
+elif [ $day == 3 ]; then
+        echo tuesday
+elif [ $day == 3 ]; then
+        echo wednesday
+fi
+~      
+
+
+b)case
+======
+echo "Enter the no of the day"
+read day
+case $day in
+        1)echo "SUNDAY" ;;
+        2)echo  "MONDAY" ;;
+        3)echo "TUESDAY" ;;
+        4)echo "WEDNESDAY" ;;
+        5)echo "THURSDAY" ;;
+        6)echo "FRIDAY" ;;
+        7)echo "SATURDAY" ;;
+        *)echo "ENTER VALID DAY" ;;
+esac
+
+------------------------------------------------------------------------------------
+que3) a) Write a script to find biggest of three no.s
+==> 
+echo enter numbers
+read a
+read b
+read c
+if  [ $a -gt $b ] && [ $a -gt $c ]; then
+        echo "a is greater"
+elif  [ $b -gt $c ]; then
+                echo "b is greater"
+else
+        echo "c is greater"
+
+fi
+
+
+------------------------------------------------------------------------------------
+ b) To find avg of 3 no.s, read no.s from keyboard
+
+vaishu@DESKTOP-K93JUVT:~$ vi average.sh
+echo "enter numbers"
+read n1
+read n2
+read n3
+sum=`expr "$n1" + "$n2" + "$n3"`
+avg=`expr "$sum" / "3"`
+echo "average=$avg"
+
+vaishu@DESKTOP-K93JUVT:~$ chmod +x average.sh
+vaishu@DESKTOP-K93JUVT:~$ ./average.sh
+enter numbers
+3
+4
+5
+average=4
+vaishu@DESKTOP-K93JUVT:~$
+
+
+------------------------------------------------------------------------------------
+4. Write a program to check wahether given no.is even or odd
+
+vaishu@DESKTOP-K93JUVT:~$ vi evenodd.sh
+echo  "enter  a  number" 
+read  x 
+y=`expr  $x  %  2` 
+if [ $y -eq 0 ] ;
+then    
+  echo  "Number  is  even"
+   else 
+      echo  "Number  is  odd"
+       fi 
+
+vaishu@DESKTOP-K93JUVT:~$ chmod +x evenodd.sh
+vaishu@DESKTOP-K93JUVT:~$ ./evenodd.sh
+enter  a  number
+3
+Number  is  odd
+vaishu@DESKTOP-K93JUVT:~$
+
+
+------------------------------------------------------------------------------------
+7. Write a script to generate Fibonacci series.
+
+vaishu@DESKTOP-K93JUVT:~$ vi sum.sh
+echo "Enter two numbers"
+read num1
+read num2
+sum= expr "$num1" + "$num2"
+echo  $sum
+
+vaishu@DESKTOP-K93JUVT:~$ ./sum.sh
+Enter two numbers
+4
+5
+9
+
+------------------------------------------------------------------------------------
+8. Write a shell script to reverse the single strings. 
+vaishu@DESKTOP-K93JUVT:~$ vi fibonaci.sh
+
+N=10 
+     a=0  
+     b=1 
+     echo "The Fibonacci series is : "
+     for (( i=0; i<N; i++ )) 
+     do
+	echo -n "$a "
+	fn=$((a + b)) 
+	a=$b 
+	b=$fn 
+
+vaishu@DESKTOP-K93JUVT:~$ chmod +x fibonaci.sh
+vaishu@DESKTOP-K93JUVT:~$ ./fibonaci.sh
+The Fibonacci series is :
+0 1 1 2 3 5 8 13 21 34 
+
+
+------------------------------------------------------------------------------------
+vaishu@DESKTOP-K93JUVT:~$ vi array.sh
+read N
+
+for((i=0;i<N;i++))
+do
+            read x
+               a[i]=$x
+done
+
+echo ${a[@]} | rev
+
+vaishu@DESKTOP-K93JUVT:~$ chmod +x array.sh
+vaishu@DESKTOP-K93JUVT:~$ ./array.sh
+3
+ravi
+darshu
+patu
+utap uhsrad ivar
+vaishu@DESKTOP-K93JUVT:~$ 
+
+
+------------------------------------------------------------------------------------
+10. Write a shell script to print the reverse of an input number.
+
+vaishu@DESKTOP-K93JUVT:~$ vi reverseno.sh
+vaishu@DESKTOP-K93JUVT:~$ chmod +x reverseno.sh
+vaishu@DESKTOP-K93JUVT:~$ ./reverseno.sh
+enter three digit number
+234
+432
+
+
+----------------------------------------------------------------------------------------
+1.Write a shell script to validate password strength. Here are a few assumptions for the password string.
+Length  – minimum of 8 characters.
+Contain both alphabet and number.
+Include both the small and capital case letters.
+If the password doesn’t comply with any of the above conditions, then the script should report it as a <Weak Password>.
+
+
+echo "enter the password"
+ read password
+  len="${#password}" 
+  if  [ $len -ge 8 ]  
+    then 
+        echo "$password" | grep -q [0-9] 
+    if [ $? -eq 0 ]  
+        then
+             echo "$password" | grep -q [A-Z] 
+        if [ $? -eq 0 ]  
+            then
+                 echo "$password" | grep -q [a-z]
+            if [ $? -eq 0 ]  
+                then 
+                    echo "$password" | grep -q [$,@,\#,%]
+                if [ $? -eq 0 ]  
+                    then echo "Strong password"
+                else echo "weak password include special chars"
+                fi 
+            else echo "weak password include lower case char" 
+            fi
+        else echo "weak password include capital char" 
+        fi 
+    else echo "please include"
+    fi
+fi
+
+
 
 
