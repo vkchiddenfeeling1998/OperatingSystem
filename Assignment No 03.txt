@@ -1,0 +1,101 @@
+     ASSIGNMENT-3
+
+
+
+Ques1
+
+#include<unistd.h>
+#include<stdlib.h>
+#include<iostream>
+#include<sys/types.h>
+using namespace std;
+
+int main()
+{
+     
+       pid_t pid;
+        pid=fork();
+
+        if(pid==0)
+        {
+                //child process
+          
+                cout<<"pid of child process----"<<getpid();
+                cout<<endl;
+                cout<<"ppid of child process----"<<getppid();
+                cout<<endl;
+        }
+        else if(pid>0)
+        {
+                //parent process        
+   
+                cout<<"pid of parent process----"<<getpid();
+                cout<<endl;
+                cout<<"ppid of parent process----"<<getppid();
+                cout<<endl;
+        }
+        else
+        {
+                cout<<"fork failed";
+        }
+        return 0;
+}
+
+OUTPUT
+pid of parent process----10205
+ppid of parent process----27222
+pid of child process----10206
+ppid of child process----10205
+------------------------------------
+Q2.
+
+#include<iostream>
+#include<unistd.h>
+#include<stdlib.h>
+#include<sched.h>
+
+using namespace std;
+
+int main()
+{
+        int a;
+        a=sched_getscheduler(getpid());
+        switch(a)
+        {
+                case SCHED_OTHER:cout<<"another scheduling poly"<<endl;
+                break;
+                case SCHED_RR:cout<<"round robin scheduler"<<endl;
+                break;
+                case SCHED_FIFO:cout<<"first in first out"<<endl;
+                break;
+
+        }
+return 0;
+}
+
+OUTPUT:
+another scheduling policy
+---------------------------------
+Q3.
+
+#include<iostream>
+#include<unistd.h>
+#include<sched.h>
+using namespace std;
+int main()
+{
+        int a;
+        a=sched_setscheduler(getpid(),SCHED_FIFO,0);
+
+        if(a==0)
+        {
+                cout<<"priority set";
+        }
+        else
+        {
+                cout<<"priority not set";
+        }
+return 0;
+}
+OUTPUT:
+priority not set
